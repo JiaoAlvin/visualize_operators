@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+<title>d3-simple-slider</title>
+
+<script src="https://d3js.org/d3.v5.min.js"></script>
+<script src="https://unpkg.com/d3-simple-slider"></script>
+<script src="https://d3js.org/d3.v4.js"></script>
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+  integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous" />
+
+<div class="container">
+  <h2>Distribution Index Effect on Offspring Distribution</h2>
+  <div class="row align-items-center">
+    <div class="col-sm">
+      <div id="slider-step"></div>
+    </div>
+  </div>
+  <div id="my_dataviz"></div>
+</div>
+
+<script>
+
+  var di_range = [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100];
+
+  var sliderStep = d3
+    .sliderBottom()
+    .min(d3.min(di_range))
+    .max(d3.max(di_range))
+    .width(300)
+    .ticks(10)
+    .step(10)
+    .default(100)
+    .on('onchange', val => draw(val));
+
+  var gStep = d3
+    .select('div#slider-step')
+    .append('svg')
+    .attr('width', 500)
+    .attr('height', 100)
+    .append('g')
+    .attr('transform', 'translate(30,30)');
+
+  gStep.call(sliderStep);
+
+  d3.select('p#value-step').text(d3.format('.2%')(sliderStep.value()));
+
+  // set the dimensions and margins of the graph
+  var margin = { top: 10, right: 30, bottom: 30, left: 60 },
+    width = 460 - margin.left - margin.right,
+    height = 400 - margin.top - margin.bottom;
+
+  // append the svg object to the body of the page
+  var svg = d3.select("#my_dataviz")
+    .append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+    .append("g")
+    .attr("transform",
+      "translate(" + margin.left + "," + margin.top + ")");
+
+  var draw = selected => {
+
+    var di = selected.toString();
+    var beg = "https://raw.githubusercontent.com/andrewdircks/visualize_operators/master/data/pm_data_";
+    var end = ".csv";
+    var filename = beg.concat(di, end);
+
+    //Read the data
+    d3.csv(filename, function (data) {
+
+      svg.selectAll("circle").remove();
+      // Add X axis
+      var x = d3.scaleLinear()
+        .domain([0, 10])
+        .range([0, width]);
+      svg.append("g")
+      // .attr("transform", "translate(0," + height + ")")
+      // .call(d3.axisBottom(x));
+
+      // Add Y axis
+      var y = d3.scaleLinear()
+        .domain([0, 10])
+        .range([height, 0]);
+      svg.append("g")
+      // .call(d3.axisLeft(y));
+
+      // Add dots
+      svg.append('g')
+        .selectAll("dot")
+        .data(data)
+        .enter()
+        .append("circle")
+        .attr("cx", function (d) { return x(d.x); })
+        .attr("cy", function (d) { return y(d.y); })
+        .attr("r", 1.5)
+        .style("fill", "#69b3a2")
+
+    })
+  };
+
+  draw(100);
+
+</script>
+
+<!-- <script>
+
+  // set the dimensions and margins of the graph
+  var margin = { top: 10, right: 30, bottom: 30, left: 60 },
+    width = 460 - margin.left - margin.right,
+    height = 400 - margin.top - margin.bottom;
+
+  // append the svg object to the body of the page
+  var svg = d3.select("#my_dataviz")
+    .append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+    .append("g")
+    .attr("transform",
+      "translate(" + margin.left + "," + margin.top + ")");
+
+  var di = "90";
+  var beg = "https://raw.githubusercontent.com/andrewdircks/visualize_operators/master/data/pm_data_";
+  var end = ".csv";
+  var filename = beg.concat(di, end);
+
+  //Read the data
+  d3.csv(filename, function (data) {
+
+    // Add X axis
+    var x = d3.scaleLinear()
+      .domain([0, 10])
+      .range([0, width]);
+    svg.append("g")
+      .attr("transform", "translate(0," + height + ")")
+      .call(d3.axisBottom(x));
+
+    // Add Y axis
+    var y = d3.scaleLinear()
+      .domain([0, 10])
+      .range([height, 0]);
+    svg.append("g")
+      .call(d3.axisLeft(y));
+
+    // Add dots
+    svg.append('g')
+      .selectAll("dot")
+      .data(data)
+      .enter()
+      .append("circle")
+      .attr("cx", function (d) { return x(d.x); })
+      .attr("cy", function (d) { return y(d.y); })
+      .attr("r", 1.5)
+      .style("fill", "#69b3a2")
+
+  })
+
+</script> -->

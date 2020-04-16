@@ -8,7 +8,7 @@ parents = [(3, 3), (6, 3), (4.5, 6)]
 eta = 0.1
 zeta = 0.1
 probability = 1
-distributionIndex = [90]
+distributionIndex = [0]
 bounds = [(0, 10), (0, 10)]
 num_samples = 1000
 
