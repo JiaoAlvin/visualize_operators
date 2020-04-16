@@ -1,7 +1,7 @@
 # visualize_operators
 Visualize various recombination and mutation operators for genetic algorithms.
 
-src: 
+<b>src:</b> 
 
 - Includes python code for various mating and mutation operators. 
 
