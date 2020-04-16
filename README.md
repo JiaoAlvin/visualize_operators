@@ -1,5 +1,5 @@
 # visualize_operators
-Visualize various recombination and mutation operators for genetic algorithms.
+Visualize various recombination and mutation operators for genetic algorithms. To view D3 interactive visualization webpage, open interactive_parameter_visualization.html in a web browser.
 
 <h2>src:</h2> 
 <h3><b>Includes python code for various mating and mutation operators. </b></h3>
