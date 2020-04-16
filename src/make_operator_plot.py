@@ -12,7 +12,7 @@ import um
 import de
 
 # plot values
-num_samples = 1000
+num_samples = 10
 parent_color = "blue"
 child_color = "black"
 child_size = 5
@@ -33,8 +33,8 @@ SBX_distribution_index = 10
 DE_crossover_rate = 0.1
 DE_scaling_factor = 0.5
 UM_probability = 1
-PCX_eta = 0.1
-PCX_zeta = 0.1
+PCX_eta = 0
+PCX_zeta = 1
 UNDX_zeta = 0.5
 UNDX_eta = 0.35
 SPX_epsilon = 0.3
