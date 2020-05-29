@@ -2,7 +2,7 @@
 Visualize various recombination and mutation operators for genetic algorithms. To view D3 interactive visualization webpage, open `interactive_parameter_visualization.html` in a web browser.
 
 <h2>src:</h2> 
-<h3><b>Includes python code for various mating and mutation operators. </b></h3>
+<h3><b>Python code for various mating and mutation operators. </b></h3>
 
 Code influenced by David Hadka and [MOEAFramework](https://github.com/MOEAFramework) - translated into Python in two dimensions.
 
@@ -25,9 +25,9 @@ Deb, K., Anand, A., and Joshi, D., "A Computationally Efficient Evolutionary Alg
  
 - Uniform Mutation (UM) operator.
 
-<h3><b>Includes python script for plotting a monte-carlo sampling of each mating operator.</b></h3>
+<h3><b>Python script for plotting a monte-carlo sampling of each mating operator.</b></h3>
 
 - Figure inspired by: Hadka, D. and P. Reed. Borg: An Auto-Adaptive Many-Objective Evolutionary Computing Framework. 
 Evolutionary Computation, 21(2):231-259, 2013.
 
-<h3><b>Includes webpage with D3.js code for interactive visualization of the effects of parameters on each operator.</b></h3>
+<h3><b>Webpage with D3.js code for interactive visualization of the effects of parameters on each operator.</b></h3>
