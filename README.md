@@ -1,7 +1,6 @@
 # visualize_operators
 Visualize various recombination and mutation operators for genetic algorithms. To view D3 interactive visualization webpage, open `interactive_parameter_visualization.html` in a web browser.
 
-<h2>src:</h2> 
 <h3><b>Python code for various mating and mutation operators. </b></h3>
 
 Code influenced by David Hadka and [MOEAFramework](https://github.com/MOEAFramework) - translated into Python in two dimensions.
