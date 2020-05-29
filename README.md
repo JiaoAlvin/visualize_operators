@@ -4,7 +4,7 @@ Visualize various recombination and mutation operators for genetic algorithms. T
 <h2>src:</h2> 
 <h3><b>Includes python code for various mating and mutation operators. </b></h3>
 
-Code influenced by David Hadka and MOEAFramework (https://github.com/MOEAFramework) - translated into Python in two dimensions.
+Code influenced by David Hadka and [MOEAFramework](https://github.com/MOEAFramework) - translated into Python in two dimensions.
 
 - Polynomial Mutation (PM) operator: 
 Deb, K. and Goyal, M. "A combined genetic adaptive search (GeneAS) for engineering design." Computer Science and Informatics, 26(4):30-45, 1996.
@@ -31,12 +31,3 @@ Deb, K., Anand, A., and Joshi, D., "A Computationally Efficient Evolutionary Alg
 Evolutionary Computation, 21(2):231-259, 2013.
 
 <h3><b>Includes webpage with D3.js code for interactive visualization of the effects of parameters on each operator.</b></h3>
-
-
-<h2>data: </h2>
-
-- Includes .csv data for monte carlo sampling of each operator.
-
-<h2>figures:</h2>
-
-- Includes relevant images.
